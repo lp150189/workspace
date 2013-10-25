@@ -1,9 +1,9 @@
 
 public class ArrayLinkedList {
-	private Node[] linkedList;
-	private int head;
-	private int tail;
-	private int size;
+	Node[] linkedList;
+	int head;
+	int tail;
+	int size;
 	
 	public ArrayLinkedList()
 	{
@@ -27,12 +27,11 @@ public class ArrayLinkedList {
 		}
 		else
 		{
-			for (int i = 0; i< size; i++)
+			for (int i = 0; i< 100; i++)
 			{
-				if(linkedList[i] != null)
+				if(linkedList[i] == null)
 				{
-					linkedList[i].value = value;
-					linkedList[head].nextIndex = head;
+					linkedList[i] = new Node(value, head);
 					head = i;
 					size++;
 					return true;
@@ -53,20 +52,22 @@ public class ArrayLinkedList {
 			head = 0; 
 			tail = 0;
 			size = 1;
+			
 		}
 		else
 		{
-			for(int i = 0 ; i< size; i++)
+			for(int i = 0 ; i< 100; i++)
 			{
-				if(linkedList[i] != null)
+				if(linkedList[i] == null)
 				{
-					linkedList[i].value = value;
-					linkedList[tail].nextIndex = i;
+					linkedList[i] = new Node(value, -1000);
+					linkedList[recursiveFindIndexByPosition(size)].nextIndex = i;
 					tail = i;
+					
 					size++;
 					return true;
 				}
-
+				
 			}
 		}
 		return false;
@@ -86,8 +87,9 @@ public class ArrayLinkedList {
 		}
 		else
 		{
+			int temp = head;
 			head = linkedList[head].nextIndex;
-			linkedList[head] = null;
+			linkedList[temp] = null;
 			size--;
 			return true;
 		}
@@ -108,8 +110,9 @@ public class ArrayLinkedList {
 		}
 		else
 		{
-			tail = recursiveFindPreviousIndex(tail);
-			linkedList[tail] = null;
+			int temp = tail;
+			tail = recursiveFindIndexByPosition(size-1);
+			linkedList[temp] = null;
 			size--;
 			return true;
 		}
@@ -124,9 +127,10 @@ public class ArrayLinkedList {
 	{
 		int prev = position--;
 		int index = recursiveFindIndexByPosition(prev);
+		int temp = linkedList[index].nextIndex;
 		int newNextIndex = linkedList[linkedList[index].nextIndex].nextIndex;
 		linkedList[index].nextIndex = newNextIndex;
-		linkedList[linkedList[index].nextIndex] = null;
+		linkedList[temp] = null;
 		size--;
 		return true;
 
@@ -136,8 +140,13 @@ public class ArrayLinkedList {
 	{
 		int index = recursiveFindIndexByPosition(position);
 
+		if(position == size)
+		{
+			addToTail(value);
+			return true;
+		}
 		//find open position
-		for(int i = 0; i < size; i++)
+		for(int i = 0; i < 100; i++)
 		{
 			if(linkedList[i] == null)
 			{
@@ -153,46 +162,25 @@ public class ArrayLinkedList {
 	public void print()
 	{
 		int index = head;
+		if(size ==1 )
+		{
+			System.out.print(linkedList[index].value+ "  ");
+			System.out.println();
+			return;
+		}
 		while(linkedList[index].nextIndex != tail)
 		{
-			System.out.print(linkedList[index].value+ "   ");
+			System.out.print(linkedList[index].value+ "  ");
 			index = linkedList[index].nextIndex;
 		}
-		System.out.print(linkedList[tail].value);
+		System.out.print(linkedList[index].value+ "  ");
+		index = linkedList[index].nextIndex;
+		System.out.print(linkedList[index].value+ "  ");
+		System.out.println();
+		System.out.println(head);
+		System.out.println(tail);
 	}
 
-	private int recursiveFindPreviousIndex(int index)
-	{
-		int i = head;
-		while(linkedList[i].nextIndex != tail)
-		{
-			if(linkedList[i].nextIndex == index)
-			{
-				return i; 
-			}
-			i = linkedList[i].nextIndex;
-		}
-		return -10000;
-	}
-
-	private int recursiveFindIndexByValue(double value)
-	{
-		
-		int i = head;
-		while(linkedList[i].nextIndex != tail)
-		{
-			if(linkedList[i].value == value)
-			{
-				return i;
-			}
-			i = linkedList[i].nextIndex;
-		}
-		if(linkedList[tail].value == value)
-		{
-			return tail;
-		}
-		return -10000;
-	}
 
 	private int recursiveFindIndexByPosition(int position)
 	{
