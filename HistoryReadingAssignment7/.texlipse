@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Thu Oct 24 11:29:30 PDT 2013
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=HistoryReadingAssignment7.tex
+outputFile=HistoryReadingAssignment7.pdf
+langSpell=en
+markDer=true
+srcDir=
