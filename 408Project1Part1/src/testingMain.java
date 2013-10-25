@@ -68,7 +68,6 @@ public class testingMain {
 		secondTestLinkedList.addToTail(2.3);
 		secondTestLinkedList.addToTail(11.25);
 		secondTestLinkedList.addToTail(11.26);
-		secondTestLinkedList.print();
 		secondTestLinkedList.addToTail(92.3);
 		secondTestLinkedList.print();
 		

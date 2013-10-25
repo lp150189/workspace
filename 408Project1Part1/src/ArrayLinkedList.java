@@ -63,7 +63,6 @@ public class ArrayLinkedList {
 					linkedList[i] = new Node(value, -1000);
 					linkedList[recursiveFindIndexByPosition(size)].nextIndex = i;
 					tail = i;
-					
 					size++;
 					return true;
 				}
@@ -177,8 +176,6 @@ public class ArrayLinkedList {
 		index = linkedList[index].nextIndex;
 		System.out.print(linkedList[index].value+ "  ");
 		System.out.println();
-		System.out.println(head);
-		System.out.println(tail);
 	}
 
 
