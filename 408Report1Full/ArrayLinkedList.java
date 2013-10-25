@@ -52,7 +52,6 @@ public class ArrayLinkedList {
 			head = 0; 
 			tail = 0;
 			size = 1;
-			
 		}
 		else
 		{
@@ -92,7 +91,6 @@ public class ArrayLinkedList {
 			size--;
 			return true;
 		}
-
 	}
 	
 	public boolean removeTail()
@@ -115,13 +113,8 @@ public class ArrayLinkedList {
 			size--;
 			return true;
 		}
-		
 	}
 	
-	/**
-	*	this method remove 
-	*
-	*/
 	public boolean removeAny( int position)
 	{
 		int prev = position--;
@@ -132,7 +125,6 @@ public class ArrayLinkedList {
 		linkedList[temp] = null;
 		size--;
 		return true;
-
 	}
 	
 	public boolean insertAfter(double value, int position)
@@ -177,8 +169,7 @@ public class ArrayLinkedList {
 		System.out.print(linkedList[index].value+ "  ");
 		System.out.println();
 	}
-
-
+	
 	private int recursiveFindIndexByPosition(int position)
 	{
 		int index = head;
@@ -187,9 +178,7 @@ public class ArrayLinkedList {
 			index = linkedList[index].nextIndex;
 		}
 		return index;
-	}
-
-
+		}
 }
 
 class Node{
