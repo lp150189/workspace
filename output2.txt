@@ -1,0 +1,105 @@
+Welcome to the Linked List program
+Enter the following number corresponding to the option
+1) Add to head 
+2) Add to tail 
+3) Remove head 
+4) Remove tail 
+5) Insert at any position
+6) Remove at any position
+Enter your option
+2
+Enter the value you want to add
+22.4
+22.4,  
+Enter your option
+2
+Enter the value you want to add
+35.4
+22.4,  35.4,  
+Enter your option
+2
+Enter the value you want to add
+70.0
+22.4,  35.4,  70.0,  
+Enter your option
+2
+Enter the value you want to add
+22.3
+22.4,  35.4,  70.0,  22.3,  
+Enter your option
+2
+Enter the value you want to add
+40.6
+22.4,  35.4,  70.0,  22.3,  40.6,  
+Enter your option
+2
+Enter the value you want to add
+80.4
+22.4,  35.4,  70.0,  22.3,  40.6,  80.4,  
+Enter your option
+2
+Enter the value you want to add
+70.5
+22.4,  35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  
+Enter your option
+2
+Enter the value you want to add
+20.2
+22.4,  35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  20.2,  
+Enter your option
+2
+Enter the value you want to add
+100.29
+22.4,  35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  20.2,  100.29,  
+Enter your option
+2
+Enter the value you want to add
+99.1
+22.4,  35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  20.2,  100.29,  99.1,  
+Enter your option
+2
+Enter the value you want to add
+1.0
+22.4,  35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  20.2,  100.29,  99.1,  1.0,  
+Enter your option
+2
+Enter the value you want to add
+2.3
+22.4,  35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  20.2,  100.29,  99.1,  1.0,  2.3,  
+Enter your option
+2
+Enter the value you want to add
+11.25
+22.4,  35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  20.2,  100.29,  99.1,  1.0,  2.3,  11.25,  
+Enter your option
+2
+Enter the value you want to add
+11.26
+22.4,  35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  20.2,  100.29,  99.1,  1.0,  2.3,  11.25,  11.26,  
+Enter your option
+2
+Enter the value you want to add
+92.3
+22.4,  35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  20.2,  100.29,  99.1,  1.0,  2.3,  11.25,  11.26,  92.3,  
+Enter your option
+3
+35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  20.2,  100.29,  99.1,  1.0,  2.3,  11.25,  11.26,  92.3,  
+Enter your option
+4
+35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  20.2,  100.29,  99.1,  1.0,  2.3,  11.25,  11.26,  
+Enter your option
+1
+Enter the value you want to add
+13.1
+13.1,  35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  20.2,  100.29,  99.1,  1.0,  2.3,  11.25,  11.26,  
+Enter your option
+2
+Enter the value you want to add
+15.05
+13.1,  35.4,  70.0,  22.3,  40.6,  80.4,  70.5,  20.2,  100.29,  99.1,  1.0,  2.3,  11.25,  11.26,  15.05,  
+Enter your option
+6
+Enter the position you want to remove
+4
+13.1,  35.4,  70.0,  40.6,  80.4,  70.5,  20.2,  100.29,  99.1,  1.0,  2.3,  11.25,  11.26,  15.05,  
+Enter your option

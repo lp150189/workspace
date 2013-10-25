@@ -147,6 +147,5 @@ public class LinkedList {
 		}
 		System.out.print(navigate.value + ",  ");
 		System.out.println();
-		System.out.println(size);
 	}
 }

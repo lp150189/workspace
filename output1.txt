@@ -1,0 +1,76 @@
+Welcome to the Linked List program
+Enter the following number corresponding to the option
+1) Add to head 
+2) Add to tail 
+3) Remove head 
+4) Remove tail 
+5) Insert at any position
+6) Remove at any position
+Enter your option
+1
+Enter the value you want to add
+35.2
+35.2,  
+Enter your option
+2
+Enter the value you want to add
+100.3
+35.2,  100.3,  
+Enter your option
+2
+Enter the value you want to add
+5.6
+35.2,  100.3,  5.6,  
+Enter your option
+2
+Enter the value you want to add
+24.0
+35.2,  100.3,  5.6,  24.0,  
+Enter your option
+2
+Enter the value you want to add
+-6.6
+35.2,  100.3,  5.6,  24.0,  -6.6,  
+Enter your option
+2
+Enter the value you want to add
+-1.4
+35.2,  100.3,  5.6,  24.0,  -6.6,  -1.4,  
+Enter your option
+2
+Enter the value you want to add
+70.4
+35.2,  100.3,  5.6,  24.0,  -6.6,  -1.4,  70.4,  
+Enter your option
+2
+Enter the value you want to add
+8.4
+35.2,  100.3,  5.6,  24.0,  -6.6,  -1.4,  70.4,  8.4,  
+Enter your option
+2
+Enter the value you want to add
+18.8
+35.2,  100.3,  5.6,  24.0,  -6.6,  -1.4,  70.4,  8.4,  18.8,  
+Enter your option
+2
+Enter the value you want to add
+-92.0
+35.2,  100.3,  5.6,  24.0,  -6.6,  -1.4,  70.4,  8.4,  18.8,  -92.0,  
+Enter your option
+3
+100.3,  5.6,  24.0,  -6.6,  -1.4,  70.4,  8.4,  18.8,  -92.0,  
+Enter your option
+4
+100.3,  5.6,  24.0,  -6.6,  -1.4,  70.4,  8.4,  18.8,  
+Enter your option
+5
+Enter the value you want to add
+19.5
+Enter the position you want to add
+1
+100.3,  19.5,  5.6,  24.0,  -6.6,  -1.4,  70.4,  8.4,  18.8,  
+Enter your option
+6
+Enter the position you want to remove
+9
+100.3,  19.5,  5.6,  24.0,  -6.6,  -1.4,  70.4,  8.4
