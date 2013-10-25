@@ -3,7 +3,7 @@
 
 \documentclass{article}
 \usepackage[svgnames]{xcolor} % Required to specify font color
-
+\usepackage{setspace}
 \newcommand*{\plogo}{\fbox{$\mathcal{PL}$}} % Generic publisher logo
 
 \usepackage{graphicx} % Required for box manipulation
@@ -29,9 +29,33 @@
 \end{center}
 \vfill
 \huge{\textbf{Compiling Instruction}}\\
-javac LexerDriver.java\\
-java          \ Lex
-\pagebreak
-\section{huyhuyhuyhuyhuyhuyhuyhuyhuyhuyhuyhuyhu yhuyhuyhuyhuyhuyhuy
-huyhuyhuyhuyhuyhuyhuyhuyhuyhuyhuyhuyhuyhuyhuyhuyhuyhuyhuy}
+javac Part1ManTesting.java\\
+java         \ Part1ManTesting\\
+\\
+javac Part2ManTesting.java\\
+java         \ Part1ManTesting\\
+\newpage
+\normalsize
+\doublespacing
+\section{Report }
+\textbf{Question 1: How each approach supports the linked list data
+structure?\\ }The first approach uses the array to implement the linked list
+data structure and it doesn’t support this data structure very well because linked list is meant to built based on pointer as the link that connects data together. Array structure make it very inflexible for the data structure to grow or to be modified.
+The second Approach support the linked list data structure very well because of its flexibility. The pointer approach is so flexible because you can grow your data without worrying about all the indexes, or the fixed size problem that the first approach has. 
+
+\textbf{Question 2: What are the advantages and disadvantages of each
+approach?}\\ The first approach has the advantage of space efficiency and access
+speed efficiency because of the structure of the array. The disadvantages for this approach are a lot. If your linked list wants to grow bigger than the size of the array then you have to create the bigger array, and copy over one by one indexes which take a lot of time. Also, this approach has very poor readability because you have to keep track of your indexes in your code. And if you use more than one array, things could be very hard to debug.
+	 The second approach has the advantage of flexibility and readability. Because of the use of pointer, your linked list will be very easy to grow without worrying about any fixed size. It also is very easy to maintain or debug this kind of linked list because of its good readability.The disadvantage of pointer linked list is element accesses. A long or big linked list might have very poor access time because we will have to traverse every element in front of the element we want to access to get to it.
+
+\textbf{Question 3: Your experience in programming each approach}\\
+	My experience with the first approach is very painful because It is so messy for me to actually simulate a linked list using array. Keeping track of indexes while at the same time have to worry about the size, the null pointer exception( a lot of null elements in your array) make the experience for this approach not so enjoyable.
+	The second approach really gives me the excitement to implement because it makes sense to implement this way. It is so much easier to implement, and debug. It takes me half the time I need for the first approach to finish the second approach.
+\newpage
+
+\section{Source Code}
+\subsection{Part 1: Array Implementation}
+\subsection{Part 2: Pointers Implementation}
+
 \end{document}
+
