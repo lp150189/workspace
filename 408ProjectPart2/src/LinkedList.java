@@ -7,8 +7,6 @@ public class LinkedList {
 		head = new Node();
 		size = 0;
 	}
-	
-	
 	public boolean addToHead(double value)
 	{
 		// if there is nothing in our linked list which is the size = 0
@@ -46,7 +44,6 @@ public class LinkedList {
 			size++;
 			return true;
 		}
-		
 	}
 	
 	public boolean removeHead()
@@ -132,10 +129,8 @@ public class LinkedList {
 			navigate.nextNode = navigate.nextNode.nextNode;
 			size--;
 			return true;
-			
 		}
 	}
-
 
 	public void print() {
 		Node navigate;
