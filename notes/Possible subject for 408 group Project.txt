@@ -1,0 +1,8 @@
+Possible subject for 408 group Project
+1) Bitter by Pavan
+2) chat client
+3) video call client http://stackoverflow.com/questions/16918013/adding-audio-video-calls-in-html5-app
+4) mail client
+5) Leap motion(cool but stupid)
+6) Cross Road game
+7) pingpong game
