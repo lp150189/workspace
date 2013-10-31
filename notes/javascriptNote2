@@ -1,0 +1,64 @@
+variable needs to start with _ $ a A after that you can use any symbol but you can also use number
+4 basic data types
+	1) String
+	2) number
+	3) boolean
+	4) object
+There are array in javascript but array is considered objects
+MAX_NUMBER AND MIN_NUMBER ARE: 1.7976931348623157e+308  and  5e-324
+Here are some escape character \" \' \\ \t \n these are special character that you have to have the backlash 
+
+
+Boolean value 
+False can have "false" or "NaN"
+
+how to declare array in javascript
+
+which is  var vehicles = new Array("car","truck", "van");
+
+if else statement is just like java
+
+ar rand_var = (5<10) ? "5 is less than 10" : "5 is greater than 10";
+This statement means if 5<10 = true then assign it to the first string. Other wise assign the second string to rand_var
+
+
+external function with javascript 
+<script> language = "javascript" src = "addfunction2.js"></script>
+
+Object oriented Programming
+Technically, javascript doesnt have any kind of class structure
+To create a method in the class you do Class.prototype.nameOfmethod = function(data){
+	
+}
+To inherit from a class yo do
+
+		function Cat()
+		{
+			Animal.call(this);
+			this.mode = "Happy";
+		}
+
+		Cat.prototype = new Animal();
+		Cat.prototype.constructor = Cat;
+
+
+To check the type of an instance we do
+document.write(sophie instanceof Cat);
+document.write(typeof)
+
+method overloading: many methods would have the same name but the number of variables in declaration would be different
+
+Polymorphism: Since javasciprt doesnt specify the things that you can pass in a function, you can pass anything in there. 
+
+function of Array
+	join("string")
+	slice()
+	reverse()
+	splice()
+
+What is undefined in javascript
+
+Look more into this.
+Block level scope
+Block scope:
+you have to define your variable at the beginning of your function, or use a different name

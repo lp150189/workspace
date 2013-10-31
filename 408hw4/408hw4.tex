@@ -1,0 +1,118 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\begin{document}
+\title{Homework 4 CS-408}
+\author{Huy Le }
+\maketitle
+\textbf{Question 9: } What are the advantages and disadvantage of keyword
+parameter?\\
+\textbf{Answer:} Advantages: parameters can appear in any order there by
+avoiding parameter correspondence errors. Disadvantages: User must know the formal parameter's names\\
+\\
+\textbf{Question 16: } What are the modes, the conceptual models for transfer, the advantages, and the disadvantages of pass-by-value, pass-by-value-result, and pass-by-reference parameter passing methods?\\
+\textbf{Answer: } The modes are 
+\begin{itemize}
+\item In mode
+\item Out mode
+\item Inout mode
+\end{itemize}
+\textbf{Pass-by-Value: } Advantages : for scalars it is fast, in both linnkage cost and access time. Disadvantages: additional storage is required (stored twice) and the actual move can be costly (for large parameter).\\
+\textbf{Pass-by-Result} Advantages and disadvantages are like pass-by-value but with some more disadvantages which are actual parameter collision, and the spcification needed for when the address to be used to return the parameter value must be computed\\.
+\textbf{Pass-by-Value-Result} Advantages: it is very fast for small size data. Disadvantages: those of pass-by-result, and those of pass-by-value.\\
+
+\textbf{Pass-by-References} Advantages: passing process is efficient( no coypying and no duplicate storage). Disadvantages: slower accesses to formal parameters. Potential for unwanted side effects(collision). Unwanted Aliases.\\
+
+\textbf{Question 20: } Describing the problem of passing multidimensional array as parameters\\
+\textbf{Answer: } Problems of passing multidimensional array are\\
+\begin{itemize}
+\item building a mapping function
+\item the compiler needs to know the size of the array. 
+\item in language use the row major ordering for matrices, the collumb width is required, this method doesn't allow matrixes with different numbers of collumns.
+\end{itemize}
+
+\textbf{Question 24:} What is an overloaded sub-program?\\
+\textbf{Answer: } An overloaded subprogram is a sub-program with the same referencing environment sa another, generally different data type for parameters.\\ 
+
+\textbf{Question 25: } What is parametric polymorphism \\
+\textbf{Answer: } Parametric polymorphism is also known as subtype polymorphism or generics, and allows subprogram to take parameters of different types on different activation\\
+
+\textbf{Question 27: } In what fundamental ways do the generic parameters to a Java 5.0 generic method differ from those of C++ methods?
+\textbf{Answer: } 
+\begin{itemize}
+\item Generic parameters in Java must be classes
+\item Restrictions can be specified on the range of classes can be passed to the generic method as generic parameter
+\item Wildcard type of generic parameters 
+\end{itemize}
+
+\textbf{Question 5}\\
+\begin{lstlisting}
+void swap (int a, int b ){
+	temp = a;
+	a = b;
+	b = temp;
+}
+void main()
+{
+	int value =2;
+	list[5] = { 1,3,5,7,9};
+	swap(value, list[0]);
+	swap(list[0],list[1]);
+	swap(value, list[value]); 
+}
+\end{lstlisting}
+\textbf{Answer: }\\
+-Pass by Value: \\
+\indent { 1,3,5,7,9}\\
+\indent { 1,3,5,7,9}\\
+\indent { 1,3,5,7,9}\\
+-Pass by Reference: \\
+\indent { 2,3,5,7,9}\\
+\indent { 3,2,5,7,9}\\
+\indent { 3,1,5,7,9}\\
+-Pass by Reference: \\
+\indent { 2,3,5,7,9}\\
+\indent { 3,2,5,7,9}\\
+\indent { 3,2,1,7,9}\\
+
+\textbf{question 7}
+\begin{lstlisting}
+void fun(int first, int second)
+{
+	first +=first;
+	second += second;
+}
+void main()
+{
+	int list[2] = {1,3};
+	fun(list[0],list[1]);
+}
+\end{lstlisting}
+\textbf{Answer:}\\
+-Pass by value: {1,3}\\
+-Pass by Reference: {2,6}\\
+-Pass by Reference: {2,6}\\
+\indent {}
+\end{document}

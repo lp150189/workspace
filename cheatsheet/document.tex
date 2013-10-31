@@ -1,0 +1,228 @@
+\documentclass{article}
+\usepackage[margin=.65in]{geometry}
+
+
+\begin{document}
+\tiny
+
+\textbf{subprogram definition: } describes the interface to and the actions of the subprograms abstraction.\textbf{subprogram call} is an explicit request that the subprogram to be executed.\textbf{subprogram header } is the first part of the definition including the name, the kind of the subprogram, and the formal parameters.\textbf{parameter profile:}aka signature is the number, order, and type of its parameter.\textbf{protocol} is a subprogram's parameter profile and if it is a function, its return type.
+\textbf{formal parameter} is a dummy variable listed in the subprogram header and used in the subprogram. \textbf{actual parameter } represents a value or address used in the subprogram call statement.\textbf{Positional} The binding of actual parameters to formal parameters is by position: the first actual parameter is bound to the first formal parameter and so forth. It is safe and effective.\textbf{keyword} the name of the formal parameter to which an actual parameter is to be bound is specified with the actual parameter. Advantage: parameters can appear in any order, there by avoiding parameter corrrespondence errors.Disadvantage: user must now the formal parameter name.\textbf{2 categories of subprograms}\textbf{Procudure: } are collection of statement that define parameterized computations.\textbf{Functions:} structurally resemble procedures but are semantically modeled on mathematical functions( They are expected to produce no side effect bu in practice they do.)
+\textbf{Local variable: Stack dynamic} \textbf{Andvantages: support for recursion, storage for locals is shared among some subprograms.}\textbf{disadvantage:  } allocation/de-allocation, initialization time.Indirect addressing. Subprgrams cannot be history sensitive. \textbf{Local variable: static} Advantages and disadvantages are the opposite of the stack-dynamic one. \textbf{In most comtemporary languages, locals are stack dynamics}\\
+\textbf{pass-by-value In mode} The value of the acutal parameter is used to initialize the corresponding formal parameter. Normally implemented by coypying. can be implemented by transmitting an access path but not recommmended( enforcing write protection is not easy.). Disadvantages(if by physical move): addtional storage is required(stored twice) and the actual move can be costly (for large parameter). Disadvantages(if by access path method): must write-protect in the called subprogram and accesses cost more. \\
+\textbf{pass-by-Result Out Mode} When a parameter is passed by result, no value is transmitted to the subprgram, the corresponding formal parameter acts as a local variable: its value is transmitted to caller's actual parameter when the control is returned to the called, by physical move. It require extra storage location and copy operation. Potential problems: sub(p1, p1): whichever formal parameter is copied back will represent the current value of p1
+\textbf{pass by value result(inout Mode)} Acombination of pass by value and pass by result. Sometimes called pass-by-copy. Formal parameters have local storage. Disadvantages: those of pass-by-result and pass by value
+\textbf{Pass-by-Reference}: (inout mode) pass an access path, also called pass-by-sharing. Advantage: passing process is efficient ( no copying and no duplicate storage). Disadvantages: slower accesses(compared to pass-by-value) to formal parameters. Potential for unwanted side effects(collisions), unwanted aliases(access broadened). 
+\textbf{pass-by-name}: (inout mode)by textual substitution, formals are bound to an access method at the time of the call but actual binding to a value or address takes place at the time of a reference or assignment. allows flexibility in late binding. Implementation requires that the referencing environment of the caller is passed with the parameter. so the actual parameter address can be calculated. 
+\textbf{multidimensional array} if a multidimensionmal array is passed to a subprogram and the subprogram is serparately compiled, the compiler needs to know the declared size of that array to build the storage mapping function.\textbf{in C and C++:} pass a pointer to the array and the sizes of the dimensions as other parameters, the user must include the storage mapping function in terms of size parameter.\textbf{Ada} contrained arrays, size is the part of the array's type. Unconstrained arrays: declared size is part of the object declaraion.\textbf{Java and C} Arrays are object; they are all single dimensioned, but the elements can be arrays.each array inherits a named constant(length in java, Length in C\#) that is set to the length of the array when the array object is created.
+\textbf{Shallow binding:}The environment of the call statement that enacts the passed subprogram. Most natural for dynamic-scoped languages.
+\textbf{Deep binding :} The environment of the definition of the passed subprogram. Most natural for static-scoped languages. 
+\textbf{Ad hoc binding: } The environment of the call statement passed the subprogram
+\textbf{delegate in C\#} public delegate in Change(int x) this delegate type can be instantiate with any method that takes an int parameter and return an int value. A delegate can store more than one address which is called a multicast delegate.
+\textbf{overloaded subprogram} is one that has the same name as aother subprogram in the same referecing environment
+\textbf{Generic subprogram } takes parameters of different types on different activation.
+\textbf{overloaded subprograms provide ad hoc polymorphism}
+\textbf{subtype polomorphism} means that a variable of type T can access any object of type T or any type derived from T
+\textbf{parametric polymorphism} a subprogram that takes a generic parameter that is used in a type expression that describes the type of the parameters of the subprogram provide
+\textbf{closure } closure is a subprogram and the referencing environment where it was defined. The referencing environment is needed if the subprogram can be called from any arbitrary place in the program. A static scoped language that does not permit nested subprograms doesn't need closures. Cloures are only needed if a subprogram can access variables in nesting scopes and it can be called from anywhere.
+\textbf{A coroutine } is a subprogram that has multiple entries and controls them itselfs. supported directly in Lua. Also called \textbf{symmetric control} caller and called coroutines are on a more equal basis. A corotine call is named a \textbf{resume}. The first resume of a coroutine is to its beginnning but subsequent calls enter at the point just after the last executed statement in the coroutine. Coroutines repeatedly resume each other. possibly forever. Coroutines provide quasi-cocurrent execution of program units(the coroutines; their execution is interleaved but not overlapped.)
+\textbf{Expressions} are the fundamental means of specifying computations in a programming language. Arithmetic expressions consist of operators, operands, parentheses, and function calls A \textbf{unary} operator has one operand A \textbf{binary} operator has two operandsA \textbf{ternary} operator has three operands \textbf{operator associativity rules} for expression evaluation define the order in which adjacent operators with the same precedence level are evaluatedPL is different; all operators have equal precedence and all operators associate right to lef Precedence and associativity rules can be overriden with parentheses RubyAll arithmetic, relational, and assignment operators, as well as array indexing, shifts, and bit-wise logic operators, are implemented as methods- One result of this is that these operators can all  be overriden by application programsScheme (and Common LISP)All arithmetic and logic operations are by explicitly called subprogramsa + b * c is coded as (+ a (* b c))
+\textbf{Functional side effects}: when a function changes a two-way parameter or a non-local variableWhen a function referenced in an expression alters another operand of the expression; e.g., for a parameter change:         	a = 10;		/* assume that fun changes its param b = a + fun(&a);  
+Two possible solutions to the problem
+Write the language definition to disallow functional side effects
+No two-way parameters in functions
+No non-local references in functions
+Advantage: it works!
+Disadvantage: inflexibility of one-way parameters and lack of non-local references
+Write the language definition to demand that operand evaluation order be fixed
+Disadvantage: limits some compiler optimizations
+Java requires that operands appear to be evaluated in left-to-right order
+A program has the property of \textbf{referential transparency} if any two expressions in the program that have the same value can be substituted for one another anywhere in the program, without affecting the action of the program
+
+Use of an operator for more than one purpose is called \textbf{operator overloading}
+Potential problems: 
+Users can define nonsense operations
+Readability may suffer, even when the operators make sense
+
+A \textbf{narrowing conversion} is one that converts an object to a type that cannot include all of the values of the original type e.g., \textbf{float to int}
+A \textbf{widening conversion} is one in which an object is converted to a type that can include at least approximations to all of the values of the original type                           e.g., int to float        A \textbf{coercion} is an implicit type conversion    Disadvantage of coercions:They decrease in the type error detection ability of the compiler In most languages, all numeric types are coerced in expressions, using widening conversions. Explicit Type Conversions: casting
+\textbf{Short Circuit Evaluation}: An expression in which the result is determined without evaluating all of the operands and/or operators
+\textbf{data type} defines a collection of data objects and a set of predefined operations on those objects     An object represents an instance of a user-defined (abstract data) type.      \textbf{Primitive data types}: Those not defined in terms of other data types     Some primitive data types are merely reflections of the hardware Others require only a little non-hardware support for their implementation
+Primitive Data Types: \textbf{Integer}.    Almost always an exact reflection of the hardware so the mapping is trivial   There may be as many as eight different integer types in a language     \textbf{Floating Point} Model real numbers, but only as approximations.    Languages for scientific use support at least two floating-point types (e.g., float and double); sometimes more.  Usually exactly like the hardware, but not always . \textbf{Boolean}  Simplest of all Range of values: two elements, one for “true” and one for “false”.  Could be implemented as bits, but often as bytes. Advantage: readability. Character  Stored as numeric codings Most commonly used coding: ASCII. An alternative, 16-bit coding: Unicode (UCS-2). Includes characters from most natural languages32 bit(UCS-4)\textbf{ Complex}Some languages support a complex type, e.g., C99, Fortran, and PythonEach value consists of two floats, the real part and the imaginary partLiteral form (in Python): 7 + 3j\textbf{Decimal}For business applications (money)COBOL, C#  Store a fixed number of decimal digits Advantage: accuracyDisadvantages: limited range, wastes memory
+
+\textbf{An ordinal type} is one in which the range of possible values can be easily associated with the set of positive integers  Examples of primitive ordinal types in JavaintegercharBoolean  User-defiined ordinal \textbf{typesEnumeration} enum days {mon, tue, wed, thu, fri, sat, sun};All possible values, which are named constants, are provided in the definitiontype Aid to readability, e.g., no need to code a color as a numberAid to reliability, e.g., compiler can check: operations (don’t allow colors to be added) No enumeration variable can be assigned a value outside its defined range
+\textbf{Subrange type}An ordered contiguous subsequence of an ordinal type Example: 12..18 is a subrange of integer typeEvaluatio Aid to readabilityMake it clear to the readers that variables of subrange can store only certain range of valuesReliabilityAssigning a value to a subrange variable that is outside the specified range is detected as an error
+\textbf{Array}: An array is an aggregate of homogeneous data elements in which an individual element is identified by its position in the aggregate, relative to the first element. Static: subscript ranges are statically bound and storage allocation is static (before run-time)
+Advantage: efficiency (no dynamic allocation)
+\textbf{Fixed stack-dynamic}: subscript ranges are statically bound, but the allocation is done at declaration time
+Advantage: space efficiency 
+\textbf{Stack-dynamic}: subscript ranges are dynamically bound and the storage allocation is dynamic (done at run-time)
+Advantage: flexibility (the size of an array need not be known until the array is to be used
+
+
+
+
+\textbf{Fixed heap-dynamic:} similar to fixed stack-dynamic: storage binding is dynamic but fixed after allocation (i.e., binding is done when requested and storage is allocated from heap, not stack)
+\textbf{Heap-dynamic:} binding of subscript ranges and storage allocation is dynamic and can change any number of times
+Advantage: flexibility (arrays can grow or shrink during program execution)
+
+
+C and C++ arrays that include static modifier are static
+C and C++ arrays without static modifier are fixed stack-dynamic
+C and C++ provide fixed heap-dynamic arrays
+C# includes a second array class ArrayList that provides heap-dynamic arrays
+Perl, JavaScript, Python, and Ruby support heap-dynamic arrays
+
+A slice is some substructure of an array; nothing more than a referencing mechanism
+
+
+
+
+\textbf{An associative array} is an unordered collection of data elements that are indexed by an equal number of values called keys
+\textbf{A record}is a possibly heterogeneous aggregate of data elements in which the individual elements are identified by names
+struct in C/C
+\textbf{A union} is a type whose variables are allowed to store different types of values at different times during execution
+C language
+union value
+{  int n;
+	double d;
+	char *s;
+};
+\textbf{A pointer }type variable has a range of values that consists of memory addresses and a special value, nil 
+Provide the power of indirect addressing
+Provide a way to manage dynamic memory (i.e. heap)
+Two fundamental operations: assignment and dereferencing
+Assignment is used to set a pointer variable’s value to some useful address
+Dereferencing yields the value stored at the location represented by the pointer’s value
+Dereferencing can be explicit or implicit
+C++ uses an explicit operation via *
+			j = *ptr
+			sets j to the value located at ptr
+\textbf{Dangling pointers (dangerous)}
+A pointer points to a heap-dynamic variable that has been deallocated
+Lost heap-dynamic variable
+An allocated heap-dynamic variable that is no longer accessible to the user program (often called garbage)
+Pointer p1 is set to point to a newly created heap-dynamic variable
+Pointer p1 is later set to point to another newly created heap-dynamic variable
+The process of losing heap-dynamic variables is called \textbf{memory leakage}
+
+   called a reference type that is used primarily for formal parameters
+Advantages of both pass-by-reference and pass-by-value 
+Java extends C++’s reference variables and allows them to replace pointers entirely
+References are references to objects, rather than being addresses
+C# includes both the references of Java and the pointers of C++
+\textbf{Type checking }is the activity of ensuring that the operands of an operator are of compatible types
+\textbf{A compatible type} is one that is either legal for the operator, or is allowed under language rules to be implicitly converted, by compiler
+This automatic conversion is called a coercion.
+\textbf{A type error }is the application of an operator to an operand of an inappropriate type
+If all type bindings are static, nearly all type checking can be static
+If type bindings are dynamic, type checking must be dynamic
+A programming language is\textbf{ strongly typed} if type errors are always detected
+Advantage of strong typing: allows the detection of the misuses of variables that result in type errors
+\textbf{Name type equivalence: }two  variables have equivalent types if they are in either the same declaration or in declarations that use the same type name
+Easy to implement but highly restrictive:
+Subranges of integer types are not equivalent with integer types
+Formal parameters must be the same type as their corresponding actual parameters
+\textbf{Structure type equivalence} means that two variables have equivalent types if their types have identical structures
+More flexible, but harder to implement
+\textbf{Variables}
+Abstraction of memory cells
+Characterized by attributes
+Name, address, type, value, scope, lifetime, …
+\textbf{Names}
+Used to identify variables and other entities
+Identifiers
+Not all variables have names
+Design issues for names:
+Are names case sensitive?
+Are special words reserved words or keywords?
+Length: Limited or unlimited?
+Special characters allowed? 
+\textbf{Address} - the memory address with which it is associated 
+A variable may have different addresses at different times during execution
+A variable may have different addresses at different places in a program
+If two variable names can be used to access the same memory location, they are called aliases
+Aliases are created via pointers, reference variables, etc.
+Aliases are harmful to readability  
+\textbf{Value} - the contents of the location with which the variable is associated
+   - The l-value of a variable is its address
+   - The r-value of a variable is its value
+
+\textbf{Type}
+determines the range of values of variables and the set of operations that are defined for values of that type; 
+in the case of floating point, type also determines the precision
+Types can be explicitly declared (e.g. C++, Java) or implicitly declared (e.g. BASIC, PERL)
+\textbf{Binding}
+ An association between an attribute and an entity, or between an operation and a symbol
+\textbf{Binding time} is the time at which a binding takes place.
+Language design time
+Language implementation time
+Compile time
+Load time
+Run time
+
+
+\textbf{A binding is static}if it first occurs before run time and remains unchanged throughout program execution.
+\textbf{A binding is dynamic} if it first occurs during execution or can change during execution of the program
+Dynamic Type Binding (JavaScript and PHP)
+Specified through an assignment statement         
+e.g., JavaScript         
+		list = [2, 4.33, 6, 8];
+		list = 17.3;
+Advantage: flexibility (generic program units)
+Disadvantages: 
+High cost (dynamic type checking and interpretation)
+Type error detection by the compiler is difficult
+\textbf{Storage}
+Allocation - getting a cell from some pool of available cells
+Deallocation - putting a cell back into the pool
+\textbf{Lifetime}
+The lifetime of a variable is the time during which it is bound to a particular memory cell
+
+
+\textbf{Static}--bound to memory cells before execution begins and remains bound to the same memory cell throughout execution
+e.g., C and C++ static variables
+Advantages: efficiency  (direct addressing), history-sensitive subprogram support
+Disadvantage: lack of flexibility  (no recursion)
+\textbf{Stack-dynamic--Storage} bindings are created for variables when their declaration statements are elaborated.
+e.g. local variables in C subprograms and Java methods
+Advantage: allows recursion; conserves storage
+Disadvantage: Overhead of allocation and deallocation
+
+
+\textbf{Explicit heap-dynamic} -- Allocated and deallocated by explicit directives, specified by the programmer, which take effect during execution
+Referenced only through pointers or references, e.g. dynamic objects in C++ (via new and delete), all objects in Java
+Advantage: provides for dynamic storage management
+Disadvantage: inefficient and unreliable
+\textbf{Implicit heap-dynamic}--Allocation and deallocation caused by assignment statements
+E.g. all variables in APL; all strings and arrays in Perl, JavaScript, and PHP
+Advantage: flexibility (generic code)
+Disadvantages: inefficient, loss of error detection
+The \textbf{scope of a variable }is the range of statements over which it is visible
+The \textbf{nonlocal variables }of a program unit are those that are visible but not declared there
+The scope rules of a language determine how references to names are associated with variables
+
+
+\textbf{Static Scoping}
+Based on program structure/layout
+Works well in many situations
+Problems:
+In most cases, too much access is possible
+As a program evolves, the initial structure is destroyed and local variables often become global; subprograms also gravitate toward become global, rather than nested
+\textbf{Evaluation of Dynamic Scoping}
+Based on calling sequences of program units, not their textual layout  
+References to variables are connected to declarations by searching back through the chain of subprogram calls that forced execution to this point
+Advantage: convenience
+Disadvantages: 
+While a subprogram is executing, its variables are visible to all subprograms it calls
+ Impossible to statically type check
+3. Poor readability- it is not possible to statically
+    determine the type of a variable
+
+\textbf{A named constant} is a variable that is bound to a value only when it is bound to storage
+Advantages: readability and modifiability
+Used to parameterize programs
+The binding of values to named constants can be either static (called manifest constants) or dynamic
+
+
+
+\end{document}
